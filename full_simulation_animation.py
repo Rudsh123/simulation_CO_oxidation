@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[2]:
-
-
 import numpy as np
 from scipy.integrate import odeint
 import matplotlib.pyplot as plt
@@ -13,16 +7,12 @@ from matplotlib.text import Text
 from matplotlib.patches import Rectangle
 
 
-# In[3]:
-
 
 def intilize_surface(size):
     surface_coverage = np.zeros((size, size))
     surface_type = np.ones((size, size))
     return surface_coverage, surface_type
 
-
-# In[4]:
 
 
 def adsorbtion_CO (surface_coverage, pressure_CO, temp,  dt, total_CO_surface, total_empty_surface, surface_type, pressure_O, total_O_surface):
@@ -54,8 +44,6 @@ def adsorbtion_CO (surface_coverage, pressure_CO, temp,  dt, total_CO_surface, t
     
     return surface_coverage
 
-
-# In[5]:
 
 
 def adsorbtion_O (surface_coverage, pressure_CO, temp,  dt, total_CO_surface, total_empty_surface, surface_type, pressure_O, total_O_surface, surface_1x1_counter, surface_1x2_counter):
@@ -145,7 +133,6 @@ def adsorbtion_O (surface_coverage, pressure_CO, temp,  dt, total_CO_surface, to
     return surface_coverage
 
 
-# In[6]:
 
 
 def desorption (surface_coverage, temp , dt, total_CO_surface, total_empty_surface):
@@ -175,7 +162,6 @@ def desorption (surface_coverage, temp , dt, total_CO_surface, total_empty_surfa
     return surface_coverage
 
 
-# In[7]:
 
 
 def reaction( surface_coverage, total_CO_surface, total_O_surface, dt, temp): 
@@ -239,9 +225,6 @@ def reaction( surface_coverage, total_CO_surface, total_O_surface, dt, temp):
     
 
 
-# In[8]:
-
-
 def phaseshift (surface_type, dt, Temp, total_CO_surface, total_1x1_surface, total_1x2_surface, surface_coverage):
     size_cat= len(surface_type) * len(surface_type) 
     R=8.31446261815324 #[J/mol*K]
@@ -289,9 +272,6 @@ def phaseshift (surface_type, dt, Temp, total_CO_surface, total_1x1_surface, tot
 
     return surface_type
         
-
-
-# In[11]:
 
 
 Temp = 539.5
@@ -355,8 +335,6 @@ plt.xlabel("Time [s]")
 plt.ylabel( "red = O ; blue= CO; green = 1x1" )
 plt.show()
 
-
-# In[ ]:
 
 
 time_to_run_over = 11 #[s]
